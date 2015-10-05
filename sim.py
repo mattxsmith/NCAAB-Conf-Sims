@@ -55,6 +55,4 @@ for i in range(SIMS):
     for champ in champions:
         team_champs[champ] += 1
 
-    if not i % 100: print i
-
 print team_champs
