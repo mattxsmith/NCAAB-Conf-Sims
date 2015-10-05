@@ -16,12 +16,13 @@ EXP = 11.5
 HCA = .014
 SIMS = 10000
 
+conference = "Big 12"
+conf_mapping = json.load(open('conferences.json', 'r'))
+conf_data = json.load(open(conf_mapping[conference], 'r'))
+
 kenpom_data = pandas.read_csv('summary15 (9).csv', index_col=0)
 
-conf_file = open('conferences.json', 'r')
-conf_data = json.load(conf_file)
-
-teams = conf_data['Big 12']['teams']
+teams = conf_data[conference]['teams']
 team_eff = {}
 for t in teams:
     team_eff[t] = [kenpom_data.loc[t, 'AdjOE'], kenpom_data.loc[t, 'AdjDE']]
