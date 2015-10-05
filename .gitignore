@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 
+# ignore kenpom's summary file
+summary*.csv
+
 # C extensions
 *.so
 
