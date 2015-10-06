@@ -3,7 +3,6 @@
 import random
 import sys
 import time
-import pandas
 import json
 
 def log5(a,b):
@@ -20,16 +19,18 @@ conference = "Big 12"
 conf_mapping = json.load(open('conferences.json', 'r'))
 conf_data = json.load(open(conf_mapping[conference], 'r'))
 
-kenpom_data = pandas.read_csv('summary15 (9).csv', index_col=0)
+f = open('summary15 (9).csv', 'r')
+f.next()
+team_data = {}
+for line in f:
+    d = line.split(',')
+    team_data[d[0]] = [float(d[7]), float(d[11])]
 
-teams = conf_data[conference]['teams']
-team_eff = {}
-for t in teams:
-    team_eff[t] = [kenpom_data.loc[t, 'AdjOE'], kenpom_data.loc[t, 'AdjDE']]
+f.close()
 
+teams = conf_data['teams']
 team_champs = dict(zip(teams, [0]*len(teams)))
-
-games = conf_data['Big 12']['schedule']
+games = conf_data['schedule']
 
 for i in range(SIMS):
     season_wins = dict(zip(teams, [0]*len(teams)))
@@ -37,10 +38,10 @@ for i in range(SIMS):
         if g['winner']:
             season_wins[g['winner']] += 1
         else:
-            home_oe = team_eff[g['home-team']][0]
-            home_de = team_eff[g['home-team']][1]
-            away_oe = team_eff[g['away-team']][0]
-            away_de = team_eff[g['away-team']][1]
+            home_oe = team_data[g['home-team']][0]
+            home_de = team_data[g['home-team']][1]
+            away_oe = team_data[g['away-team']][0]
+            away_de = team_data[g['away-team']][1]
 
             home_pyth = pythag(home_oe*(1+HCA), home_de*(1-HCA), EXP)
             away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
