@@ -4,6 +4,7 @@ import random
 import sys
 import time
 import json
+import os
 
 def log5(a,b):
   return (a-a*b)/(a+b-2*a*b)
@@ -11,15 +12,20 @@ def log5(a,b):
 def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
+SUMMARY_FILE = 'summary15.csv'
 EXP = 11.5
 HCA = .014
 SIMS = 10000
+
+if not os.path.isfile(SUMMARY_FILE):
+    raise NameError('Please download KenPom\'s summary16.csv file')
+
 
 conference = "Big 12"
 conf_mapping = json.load(open('conferences.json', 'r'))
 conf_data = json.load(open(conf_mapping[conference], 'r'))
 
-f = open('summary15.csv', 'r')
+f = open(SUMMARY_FILE, 'r')
 f.next()
 team_data = {}
 for line in f:
@@ -27,9 +33,9 @@ for line in f:
     team_data[d[0]] = [float(d[7]), float(d[11]), int(d[14])]
 
 f.close()
-
 teams = conf_data['teams']
 team_champs = dict(zip(teams, [[0,0,0] for i in teams]))
+win_dist = dict(zip(teams, [[0]*19 for i in teams]))
 games = conf_data['schedule']
 
 for i in range(SIMS):
@@ -69,15 +75,18 @@ for i in range(SIMS):
         if len(champions) == 1:
             team_champs[champ][1] += 1
 
-print('{:16}  {:4} {:2} {:2} {:4}  {:6} {:6} {:6} {:}'.format('Team', 'Rnk', 'W', 'L', 'Luck', 'Share', 'Outrt', '1Seed', 'EWins'))
+    for t in teams:
+        win_dist[t][season_wins[t]] += 1
+
+print('{:16}  {:4} {:2} {:2} {:4}  {:6} {:6} {:6} {:}'.format('Team', 'Rnk', 
+    'W', 'L', 'Luck', 'Share', 'Outrt', '1Seed', 'EWins'))
 
 
 for team in sorted(teams, key= lambda x: team_champs[x][0], reverse=True):
-    # print '{0:15s}{1:4d}  {2:.3f}  {3:.3f}  '\
-    # '{4:.3f}'.format(team, team_data[team][2], float(team_champs[team][0])/SIMS,
-    #     float(team_champs[team][1])/SIMS, team_champs[team][2]/SIMS)
-
-    print('{0:16} {1:4}  {2:1}  {3:1}  {4:4.1f}  {5:0.3f}  {6:0.3f}  {7:0.3f}  '\
+    print '{0:16} {1:4}  {2:1}  {3:1}  {4:4.1f}  {5:0.3f}  {6:0.3f}  {7:0.3f}  '\
        '{8:.3}'.format(team, team_data[team][2], wle[team][0], wle[team][1],
         wle[team][0]-wle[team][2], float(team_champs[team][0])/SIMS, 
-        float(team_champs[team][1])/SIMS, float(team_champs[team][2])/SIMS, 1.0))
+        float(team_champs[team][1])/SIMS, float(team_champs[team][2])/SIMS, 
+        sum([float(i)*win_dist[team][i]/SIMS for i in range(len(win_dist[team]))]))
+       
+
