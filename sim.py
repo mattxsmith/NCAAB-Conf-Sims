@@ -19,7 +19,7 @@ conference = "Big 12"
 conf_mapping = json.load(open('conferences.json', 'r'))
 conf_data = json.load(open(conf_mapping[conference], 'r'))
 
-f = open('summary15 (9).csv', 'r')
+f = open('summary15.csv', 'r')
 f.next()
 team_data = {}
 for line in f:
