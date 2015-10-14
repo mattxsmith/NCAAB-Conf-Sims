@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from random import random
-import sys
 from time import time
 from json import load
 from os.path import isfile
