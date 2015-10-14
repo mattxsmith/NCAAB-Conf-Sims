@@ -45,13 +45,18 @@ for line in f:
 
 f.close()
 teams = conf_data['teams']
+games = conf_data['schedule']
+
+# calculate games in season by finding the most games a team is scheduled to play
+games_in_season = max([len(filter(lambda x: x['home-team'] == t
+    or x['away-team'] == t, games)) for t in teams])
+
 # dict for counting championships
 # index 0 is for any share of title, 1 is for outright and 2 is for 1 seed odds
 team_champs = dict(zip(teams, [[0,0,0] for i in teams]))
 # dict for keeping track of win distributions
-win_dist = dict(zip(teams, [[0]*19 for i in teams]))
+win_dist = dict(zip(teams, [[0]*(games_in_season+1) for i in teams]))
 
-games = conf_data['schedule']
 
 for i in range(SIMS):
     season_wins = dict(zip(teams, [0]*len(teams)))
@@ -112,7 +117,6 @@ for team in sorted(teams, key= lambda x: team_champs[x][0], reverse=True):
         float(team_champs[team][1])/SIMS, float(team_champs[team][2])/SIMS, 
         sum([float(i)*win_dist[team][i]/SIMS 
             for i in range(len(win_dist[team]))]))
-       
 if args.wins:
     if args.wins not in teams:
         raise NameError('Win distribution team not in conference')
