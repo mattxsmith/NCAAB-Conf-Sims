@@ -4,6 +4,7 @@ from random import random
 from time import time
 from json import load
 from os.path import isfile
+import argparse
 
 def log5(a,b):
   return (a-a*b)/(a+b-2*a*b)
@@ -11,15 +12,25 @@ def log5(a,b):
 def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
-SUMMARY_FILE = 'summary14.csv'
+# default constants
+SUMMARY_FILE = 'summary15.csv'
 EXP = 11.5 # pythag exponent
 HCA = .014 # home court advantage
-SIMS = 10000 # the number of sims to run (default)
+
+parser = argparse.ArgumentParser()
+parser.add_argument("conference", help="This argument is the name of the" 
+    "conference you want to simulate. Conference names can be found in the"
+    "conferences.json file")
+parser.add_argument('-n','--number', help="This argument is the number of"
+    " simulations you want to run", type=int, default=10000)
+args = parser.parse_args()
+
+SIMS = args.number
 
 if not isfile(SUMMARY_FILE):
     raise NameError('Please download KenPom\'s summary16.csv file')
 
-conference = "Big 12"
+conference = args.conference
 conf_mapping = load(open('conferences.json', 'r'))
 conf_data = load(open(conf_mapping[conference], 'r'))
 
