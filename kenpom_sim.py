@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-import random
+from random import random
 import sys
-import time
-import json
-import os
+from time import time
+from json import load
+from os.path import isfile
 
 def log5(a,b):
   return (a-a*b)/(a+b-2*a*b)
@@ -17,12 +17,12 @@ EXP = 11.5 # pythag exponent
 HCA = .014 # home court advantage
 SIMS = 10000 # the number of sims to run (default)
 
-if not os.path.isfile(SUMMARY_FILE):
+if not isfile(SUMMARY_FILE):
     raise NameError('Please download KenPom\'s summary16.csv file')
 
 conference = "Big 12"
-conf_mapping = json.load(open('conferences.json', 'r'))
-conf_data = json.load(open(conf_mapping[conference], 'r'))
+conf_mapping = load(open('conferences.json', 'r'))
+conf_data = load(open(conf_mapping[conference], 'r'))
 
 f = open(SUMMARY_FILE, 'r')
 f.next()
@@ -72,7 +72,7 @@ for i in range(SIMS):
             wle[g['home-team']][2] += home_win_prob
             wle[g['away-team']][2] += (1-home_win_prob)
         else:
-            if random.random() <= home_win_prob:
+            if random() <= home_win_prob:
                 season_wins[g['home-team']] += 1
             else:
                 season_wins[g['away-team']] += 1
