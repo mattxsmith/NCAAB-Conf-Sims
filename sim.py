@@ -13,13 +13,12 @@ def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
 SUMMARY_FILE = 'summary15.csv'
-EXP = 11.5
-HCA = .014
-SIMS = 10000
+EXP = 11.5 # pythag exponent
+HCA = .014 # home court advantage
+SIMS = 10000 # the number of sims to run (default)
 
 if not os.path.isfile(SUMMARY_FILE):
     raise NameError('Please download KenPom\'s summary16.csv file')
-
 
 conference = "Big 12"
 conf_mapping = json.load(open('conferences.json', 'r'))
@@ -34,12 +33,21 @@ for line in f:
 
 f.close()
 teams = conf_data['teams']
+# dict for counting championships
+# index 0 is for any share of title, 1 is for outright and 2 is for 1 seed odds
 team_champs = dict(zip(teams, [[0,0,0] for i in teams]))
+# dict for keeping track of win distributions
 win_dist = dict(zip(teams, [[0]*19 for i in teams]))
+
 games = conf_data['schedule']
 
 for i in range(SIMS):
     season_wins = dict(zip(teams, [0]*len(teams)))
+    
+    # initiate dict for keeping current wins, losses and expected wins
+    
+    # this is inefficient in that it does the calcs for every SIM, but
+    # this way is more simple than making a seperate loop through the schedule
     wle = dict(zip(teams, [[0,0,0] for i in teams]))
     for g in games:
         home_oe = team_data[g['home-team']][0]
@@ -51,6 +59,8 @@ for i in range(SIMS):
         home_win_prob = log5(home_pyth, away_pyth)
         if g['winner']:
             season_wins[g['winner']] += 1
+
+            # increment the expected wins for each team
             wle[g['winner']][0] += 1
             if g['winner'] == g['home-team']:
                 loser = g['away-team']
@@ -68,7 +78,8 @@ for i in range(SIMS):
                 season_wins[g['away-team']] += 1
 
     max_wins = max([season_wins[t] for t in teams])
-    champions = [t for t in teams if season_wins[t] == max_wins]
+    # get list of all teams that tied for most wins (i.e. are champs)
+    champions = filter(lambda t: season_wins[t] == max_wins, champions)
     for champ in champions:
         team_champs[champ][0] += 1
         team_champs[champ][2] += 1.0/len(champions)
@@ -87,6 +98,7 @@ for team in sorted(teams, key= lambda x: team_champs[x][0], reverse=True):
        '{8:.3}'.format(team, team_data[team][2], wle[team][0], wle[team][1],
         wle[team][0]-wle[team][2], float(team_champs[team][0])/SIMS, 
         float(team_champs[team][1])/SIMS, float(team_champs[team][2])/SIMS, 
-        sum([float(i)*win_dist[team][i]/SIMS for i in range(len(win_dist[team]))]))
+        sum([float(i)*win_dist[team][i]/SIMS 
+            for i in range(len(win_dist[team]))]))
        
 
