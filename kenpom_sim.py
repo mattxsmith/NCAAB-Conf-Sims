@@ -12,7 +12,7 @@ def log5(a,b):
 def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
-SUMMARY_FILE = 'summary14.csv'
+SUMMARY_FILE = 'summary13.csv'
 EXP = 11.5 # pythag exponent
 HCA = .014 # home court advantage
 SIMS = 10000 # the number of sims to run (default)
