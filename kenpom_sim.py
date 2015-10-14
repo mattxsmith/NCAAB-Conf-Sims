@@ -23,6 +23,8 @@ parser.add_argument("conference", help="This argument is the name of the"
     "conferences.json file")
 parser.add_argument('-n','--number', help="This argument is the number of"
     " simulations you want to run", type=int, default=10000)
+parser.add_argument('-w','--wins', help="This argument is the team"
+    " that you want to show a win distribution of")
 args = parser.parse_args()
 
 SIMS = args.number
@@ -111,4 +113,14 @@ for team in sorted(teams, key= lambda x: team_champs[x][0], reverse=True):
         sum([float(i)*win_dist[team][i]/SIMS 
             for i in range(len(win_dist[team]))]))
        
+if args.wins:
+    if args.wins not in teams:
+        raise NameError('Win distribution team not in conference')
+    print '\nWin distribution for', args.wins
+    print "Wins  Prob.   Cumulative"
+    wd = 0
+    for bb in range(19):
+        w = float(win_dist[args.wins][bb])/SIMS
+        wd += w
+        print '{:5} {:0.4f}  {:0.4f}'.format(str(bb), w, wd)
 
