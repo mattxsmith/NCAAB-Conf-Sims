@@ -12,7 +12,7 @@ def log5(a,b):
 def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
-SUMMARY_FILE = 'summary15.csv'
+SUMMARY_FILE = 'summary14.csv'
 EXP = 11.5 # pythag exponent
 HCA = .014 # home court advantage
 SIMS = 10000 # the number of sims to run (default)
@@ -79,7 +79,7 @@ for i in range(SIMS):
 
     max_wins = max([season_wins[t] for t in teams])
     # get list of all teams that tied for most wins (i.e. are champs)
-    champions = filter(lambda t: season_wins[t] == max_wins, champions)
+    champions = filter(lambda t: season_wins[t] == max_wins, teams)
     for champ in champions:
         team_champs[champ][0] += 1
         team_champs[champ][2] += 1.0/len(champions)
