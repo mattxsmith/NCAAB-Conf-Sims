@@ -30,7 +30,7 @@ args = parser.parse_args()
 SIMS = args.number
 
 if not isfile(SUMMARY_FILE):
-    raise NameError('Please download KenPom\'s summary16.csv file')
+    raise NameError('Please download KenPom\'s summary file')
 
 conference = args.conference
 conf_mapping = load(open('conferences.json', 'r'))
