@@ -48,8 +48,11 @@ teams = conf_data['teams']
 games = conf_data['schedule']
 
 # calculate games in season by finding the most games a team is scheduled to play
-games_in_season = max([len(filter(lambda x: x['home-team'] == t
-    or x['away-team'] == t, games)) for t in teams])
+games_per_team = [len([g for g in games if g['home-team'] == t 
+    or g['away-team'] == t]) for t in teams]
+games_in_season = max(games_per_team)
+if games_in_season != min(games_per_team):
+    raise NameError('Not all teams have the same number of games. Fix json.')
 
 # dict for counting championships
 # index 0 is for any share of title, 1 is for outright and 2 is for 1 seed odds
@@ -96,7 +99,7 @@ for i in range(SIMS):
 
     max_wins = max([season_wins[t] for t in teams])
     # get list of all teams that tied for most wins (i.e. are champs)
-    champions = filter(lambda t: season_wins[t] == max_wins, teams)
+    champions = [t for t in teams if season_wins[t] == max_wins]
     for champ in champions:
         team_champs[champ][0] += 1
         team_champs[champ][2] += 1.0/len(champions)
