@@ -60,14 +60,13 @@ team_champs = dict(zip(teams, [[0,0,0] for i in teams]))
 # dict for keeping track of win distributions
 win_dist = dict(zip(teams, [[0]*(games_in_season+1) for i in teams]))
 
-
 for i in range(SIMS):
     season_wins = dict(zip(teams, [0]*len(teams)))
     
     # initiate dict for keeping current wins, losses and expected wins
     
     # this is inefficient in that it does the calcs for every SIM, but
-    # this way is more simple than making a seperate loop through the schedule
+    # it's more simple than making a seperate loop through the schedule
     wle = dict(zip(teams, [[0,0,0] for i in teams]))
     for g in games:
         home_oe = team_data[g['home-team']][0]
@@ -81,13 +80,13 @@ for i in range(SIMS):
             season_wins[g['winner']] += 1
 
             # increment the expected wins for each team
-            wle[g['winner']][0] += 1
             if g['winner'] == g['home-team']:
                 loser = g['away-team']
             elif g['winner'] == g['away-team']:
                 loser = g['home-team']
             else:
                 raise NameError('Winner not in game')
+            wle[g['winner']][0] += 1
             wle[loser][1] += 1
             wle[g['home-team']][2] += home_win_prob
             wle[g['away-team']][2] += (1-home_win_prob)
@@ -111,7 +110,6 @@ for i in range(SIMS):
 
 print('{:16}  {:4} {:2} {:2} {:4}  {:6} {:6} {:6} {:}'.format('Team', 'Rnk', 
     'W', 'L', 'Luck', 'Share', 'Outrt', '1Seed', 'EWins'))
-
 
 for team in sorted(teams, key= lambda x: team_champs[x][0], reverse=True):
     print '{0:16} {1:4}  {2:1}  {3:1}  {4:4.1f}  {5:0.3f}  {6:0.3f}  {7:0.3f}  '\
