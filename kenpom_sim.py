@@ -7,6 +7,8 @@ from json import load
 from os.path import isfile
 import argparse
 
+time_count = time()
+
 def log5(a,b):
   return (a-a*b)/(a+b-2*a*b)
 
@@ -48,6 +50,18 @@ f.close()
 teams = conf_data['teams']
 games = conf_data['schedule']
 
+g_p = []
+for g in games:
+    home_oe = team_data[g['home-team']][0]
+    home_de = team_data[g['home-team']][1]
+    away_oe = team_data[g['away-team']][0]
+    away_de = team_data[g['away-team']][1]
+    home_pyth = pythag(home_oe*(1+HCA), home_de*(1-HCA), EXP)
+    away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
+    home_win_prob = log5(home_pyth, away_pyth)
+    g_p.append(home_win_prob)
+
+
 # calculate games in season by finding the most games a team is scheduled to play
 games_per_team = [len([g for g in games if g['home-team'] == t 
     or g['away-team'] == t]) for t in teams]
@@ -69,14 +83,8 @@ for i in range(SIMS):
     # this is inefficient in that it does the calcs for every SIM, but
     # it's more simple than making a seperate loop through the schedule
     wle = dict(zip(teams, [[0,0,0] for i in teams]))
-    for g in games:
-        home_oe = team_data[g['home-team']][0]
-        home_de = team_data[g['home-team']][1]
-        away_oe = team_data[g['away-team']][0]
-        away_de = team_data[g['away-team']][1]
-        home_pyth = pythag(home_oe*(1+HCA), home_de*(1-HCA), EXP)
-        away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
-        home_win_prob = log5(home_pyth, away_pyth)
+    for g, game_num in [(games[i], i) for i in range(len(games))]:
+        home_win_prob = g_p[game_num]
         if g['winner']:
             season_wins[g['winner']] += 1
 
@@ -130,3 +138,4 @@ if args.wins:
         wd += w
         print '{:5} {:0.4f}  {:0.4f}'.format(str(bb), w, wd)
 
+print time() - time_count
