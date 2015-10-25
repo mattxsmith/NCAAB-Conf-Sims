@@ -50,7 +50,10 @@ f.close()
 teams = conf_data['teams']
 games = conf_data['schedule']
 
+# cache the win probabilities in order to not redo calculations each sim
 g_p = []
+wle = dict(zip(teams, [[0,0,0] for i in teams]))
+
 for g in games:
     home_oe = team_data[g['home-team']][0]
     home_de = team_data[g['home-team']][1]
@@ -60,6 +63,17 @@ for g in games:
     away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
     home_win_prob = log5(home_pyth, away_pyth)
     g_p.append(home_win_prob)
+    if g['winner']:
+        if g['winner'] == g['home-team']:
+            loser = g['away-team']
+        elif g['winner'] == g['away-team']:
+            loser = g['home-team']
+        else:
+            raise NameError('Winner not in game')
+        wle[g['winner']][0] += 1
+        wle[loser][1] += 1
+        wle[g['home-team']][2] += home_win_prob
+        wle[g['away-team']][2] += (1-home_win_prob)
 
 
 # calculate games in season by finding the most games a team is scheduled to play
@@ -82,23 +96,12 @@ for i in range(SIMS):
     
     # this is inefficient in that it does the calcs for every SIM, but
     # it's more simple than making a seperate loop through the schedule
-    wle = dict(zip(teams, [[0,0,0] for i in teams]))
     for g, game_num in [(games[i], i) for i in range(len(games))]:
         home_win_prob = g_p[game_num]
         if g['winner']:
             season_wins[g['winner']] += 1
 
             # increment the expected wins for each team
-            if g['winner'] == g['home-team']:
-                loser = g['away-team']
-            elif g['winner'] == g['away-team']:
-                loser = g['home-team']
-            else:
-                raise NameError('Winner not in game')
-            wle[g['winner']][0] += 1
-            wle[loser][1] += 1
-            wle[g['home-team']][2] += home_win_prob
-            wle[g['away-team']][2] += (1-home_win_prob)
         else:
             if random() <= home_win_prob:
                 season_wins[g['home-team']] += 1
