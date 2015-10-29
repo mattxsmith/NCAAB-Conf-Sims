@@ -16,7 +16,7 @@ def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
 # default constants
-SUMMARY_FILE = 'summary15.csv'
+SUMMARY_FILE = 'summary16.csv'
 EXP = 11.5 # pythag exponent
 HCA = .014 # home court advantage
 
@@ -44,7 +44,7 @@ f.next()
 team_data = {}
 for line in f:
     d = line.split(',')
-    team_data[d[0]] = [float(d[7]), float(d[11]), int(d[14])]
+    team_data[d[1].replace('"', '')] = [float(d[8]), float(d[12]), int(d[15])]
 
 f.close()
 teams = conf_data['teams']
@@ -100,8 +100,6 @@ for i in range(SIMS):
         home_win_prob = g_p[game_num]
         if g['winner']:
             season_wins[g['winner']] += 1
-
-            # increment the expected wins for each team
         else:
             if random() <= home_win_prob:
                 season_wins[g['home-team']] += 1
@@ -141,4 +139,4 @@ if args.wins:
         wd += w
         print '{:5} {:0.4f}  {:0.4f}'.format(str(bb), w, wd)
 
-print time() - time_count
+print '\n', time() - time_count
