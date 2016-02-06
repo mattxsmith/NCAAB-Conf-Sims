@@ -16,7 +16,7 @@ def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
 # default constants
-SUMMARY_FILE = 'summary16.csv'
+SUMMARY_FILE = 'summary16 (12).csv'
 EXP = 11.5 # pythag exponent
 HCA = .014 # home court advantage
 
@@ -40,13 +40,12 @@ conf_mapping = load(open('conferences.json', 'r'))
 conf_data = load(open(conf_mapping[conference], 'r'))
 
 f = open(SUMMARY_FILE, 'r')
-f.next()
+f = [i.strip() for i in f.readlines()][1:]
 team_data = {}
 for line in f:
     d = line.split(',')
     team_data[d[1].replace('"', '')] = [float(d[8]), float(d[12]), int(d[15])]
 
-f.close()
 teams = conf_data['teams']
 games = conf_data['schedule']
 
@@ -63,6 +62,7 @@ for g in games:
     away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
     home_win_prob = log5(home_pyth, away_pyth)
     g_p.append(home_win_prob)
+    #g['winner'] = None
     if g['winner']:
         if g['winner'] == g['home-team']:
             loser = g['away-team']
@@ -122,21 +122,21 @@ print('{:16}  {:4} {:2} {:2} {:4}  {:6} {:6} {:6} {:}'.format('Team', 'Rnk',
     'W', 'L', 'Luck', 'Share', 'Outrt', '1Seed', 'EWins'))
 
 for team in sorted(teams, key= lambda x: team_champs[x][0], reverse=True):
-    print '{0:16} {1:4}  {2:1}  {3:1}  {4:4.1f}  {5:0.3f}  {6:0.3f}  {7:0.3f}  '\
+    print('{0:16} {1:4}  {2:1}  {3:1}  {4:4.1f}  {5:0.3f}  {6:0.3f}  {7:0.3f}  '\
        '{8:.3}'.format(team, team_data[team][2], wle[team][0], wle[team][1],
         wle[team][0]-wle[team][2], team_champs[team][0]/SIMS, 
         team_champs[team][1]/SIMS, team_champs[team][2]/SIMS, 
         sum([i*win_dist[team][i]/SIMS 
-            for i in range(len(win_dist[team]))]))
+            for i in range(len(win_dist[team]))])))
 if args.wins:
     if args.wins not in teams:
         raise NameError('Win distribution team not in conference')
-    print '\nWin distribution for', args.wins
-    print "Wins  Prob.   Cumulative"
+    print('\nWin distribution for', args.wins)
+    print("Wins  Prob.   Cumulative")
     wd = 0
-    for bb in range(19):
+    for bb in range(games_in_season+1):
         w = win_dist[args.wins][bb]/SIMS
         wd += w
-        print '{:5} {:0.4f}  {:0.4f}'.format(str(bb), w, wd)
+        print('{:5} {:0.4f}  {:0.4f}'.format(str(bb), w, wd))
 
-print '\n', time() - time_count
+print('\n', time() - time_count)
