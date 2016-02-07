@@ -16,7 +16,7 @@ def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
 # default constants
-SUMMARY_FILE = 'summary16 (12).csv'
+SUMMARY_FILE = 'summary16 (13).csv'
 EXP = 11.5 # pythag exponent
 HCA = .014 # home court advantage
 
