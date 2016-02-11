@@ -139,4 +139,5 @@ if args.wins:
         wd += w
         print('{:5} {:0.4f}  {:0.4f}'.format(str(bb), w, wd))
 
-print('\n', time() - time_count)
+print('\n')
+print(time() - time_count)
