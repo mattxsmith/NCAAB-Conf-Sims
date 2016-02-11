@@ -310,37 +310,37 @@
             "date":"Feb 06",
             "home-team":"West Virginia",
             "away-team":"Baylor",
-            "winner":null
+            "winner":"West Virginia"
          },
          {
             "date":"Feb 08",
             "home-team":"TCU",
             "away-team":"Oklahoma St.",
-            "winner":null
+            "winner":"TCU"
          },
          {
             "date":"Feb 08",
             "home-team":"Oklahoma",
             "away-team":"Texas",
-            "winner":null
+            "winner":"Oklahoma"
          },
          {
             "date":"Feb 09",
             "home-team":"Kansas",
             "away-team":"West Virginia",
-            "winner":null
+            "winner":"Kansas"
          },
          {
             "date":"Feb 10",
             "home-team":"Kansas St.",
             "away-team":"Baylor",
-            "winner":null
+            "winner":"Baylor"
          },
          {
             "date":"Feb 10",
             "home-team":"Texas Tech",
             "away-team":"Iowa St.",
-            "winner":null
+            "winner":"Texas Tech"
          },
          {
             "date":"Feb 13",
