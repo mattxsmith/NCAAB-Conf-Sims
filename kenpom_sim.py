@@ -33,7 +33,7 @@ args = parser.parse_args()
 SIMS = args.number
 
 if not isfile(SUMMARY_FILE):
-    raise NameError('Please download KenPom\'s summary file')
+    raise NameError('Cannot find the %s file.' % SUMMARY_FILE)
 
 conference = args.conference
 conf_mapping = load(open('conferences.json', 'r'))
@@ -121,7 +121,8 @@ for i in range(SIMS):
 print('{:16}  {:4} {:2} {:2} {:4}  {:6} {:6} {:6} {:}'.format('Team', 'Rnk', 
     'W', 'L', 'Luck', 'Share', 'Outrt', '1Seed', 'EWins'))
 
-for team in sorted(teams, key= lambda x: team_champs[x][0], reverse=True):
+for team in sorted(teams, key= lambda x: sum([i*win_dist[x][i]/SIMS 
+            for i in range(len(win_dist[x]))]), reverse=True):
     print('{0:16} {1:4}  {2:1}  {3:1}  {4:4.1f}  {5:0.3f}  {6:0.3f}  {7:0.3f}  '\
        '{8:.3}'.format(team, team_data[team][2], wle[team][0], wle[team][1],
         wle[team][0]-wle[team][2], team_champs[team][0]/SIMS, 
