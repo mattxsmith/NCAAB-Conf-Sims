@@ -5,6 +5,7 @@ from random import random
 from time import time
 from json import load
 from os.path import isfile
+from math import erf
 import argparse
 
 time_count = time()
@@ -16,12 +17,14 @@ def pythag(c,d,e):
   return (c**e)/(c**e+d**e)
 
 # default constants
-SUMMARY_FILE = 'summary16.csv'
+SUMMARY_FILE = 'summary17 (13).csv'
 EXP = 11.5 # pythag exponent
 HCA = .014 # home court advantage
+AVG_TEMPO = 69.7 # used to calculate tempo of each game
+
 
 parser = argparse.ArgumentParser()
-parser.add_argument("conference", help="This argument is the name of the" 
+parser.add_argument("conference", help="This argument is the name of the"
     "conference you want to simulate. Conference names can be found in the"
     "conferences.json file")
 parser.add_argument('-n','--number', help="This argument is the number of"
@@ -40,11 +43,19 @@ conf_mapping = load(open('conferences.json', 'r'))
 conf_data = load(open(conf_mapping[conference], 'r'))
 
 f = open(SUMMARY_FILE, 'r')
-f = [i.strip() for i in f.readlines()][1:]
+f = [i.strip() for i in f.readlines()][:]
+header = f.pop(0)
+header = header.split(',')
+cols = ['"TeamName"', '"AdjOE"', '"AdjDE"', '"AdjEM"', '"RankAdjEM"', '"AdjTempo"']
+col_inds = dict([(c, header.index(c)) for c in cols])
+# this should really be in some sort of data table structure
+# the order of metrics is adjo, adjd, rank, adjtempo, adjEM
 team_data = {}
 for line in f:
     d = line.split(',')
-    team_data[d[1].replace('"', '')] = [float(d[8]), float(d[12]), int(d[15])]
+    team_data[d[col_inds['"TeamName"']].replace('"', '')] = [float(d[col_inds['"AdjOE"']]),
+        float(d[col_inds['"AdjDE"']]), int(d[col_inds['"RankAdjEM"']]),
+        float(d[col_inds['"AdjTempo"']]), float(d[col_inds['"AdjEM"']])]
 
 teams = conf_data['teams']
 games = conf_data['schedule']
@@ -53,14 +64,20 @@ games = conf_data['schedule']
 g_p = []
 wle = dict(zip(teams, [[0,0,0] for i in teams]))
 
+
 for g in games:
-    home_oe = team_data[g['home-team']][0]
-    home_de = team_data[g['home-team']][1]
-    away_oe = team_data[g['away-team']][0]
-    away_de = team_data[g['away-team']][1]
-    home_pyth = pythag(home_oe*(1+HCA), home_de*(1-HCA), EXP)
-    away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
-    home_win_prob = log5(home_pyth, away_pyth)
+    tempo = team_data[g['home-team']][3]*team_data[g['away-team']][3]/AVG_TEMPO
+    home_margin = (team_data[g['home-team']][4] - team_data[g['away-team']][4])*(tempo/100) + 3.75
+    #if g['home-team'] == "Kansas":
+    #    home_margin += 100
+    #home_oe = team_data[g['home-team']][0]
+    #home_de = team_data[g['home-team']][1]
+    #away_oe = team_data[g['away-team']][0]
+    #away_de = team_data[g['away-team']][1]
+    #home_pyth = pythag(home_oe*(1+HCA), home_de*(1-HCA), EXP)
+    #away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
+    #home_win_prob = log5(home_pyth, away_pyth)
+    home_win_prob = .5*(1+erf((home_margin)/(11*(2)**.5)))
     g_p.append(home_win_prob)
     #g['winner'] = None
     if g['winner']:
@@ -76,8 +93,9 @@ for g in games:
         wle[g['away-team']][2] += (1-home_win_prob)
 
 
+#print(g_p)
 # calculate games in season by finding the most games a team is scheduled to play
-games_per_team = [len([g for g in games if g['home-team'] == t 
+games_per_team = [len([g for g in games if g['home-team'] == t
     or g['away-team'] == t]) for t in teams]
 games_in_season = max(games_per_team)
 if games_in_season != min(games_per_team):
@@ -91,9 +109,9 @@ win_dist = dict(zip(teams, [[0]*(games_in_season+1) for i in teams]))
 
 for i in range(SIMS):
     season_wins = dict(zip(teams, [0]*len(teams)))
-    
+
     # initiate dict for keeping current wins, losses and expected wins
-    
+
     # this is inefficient in that it does the calcs for every SIM, but
     # it's more simple than making a seperate loop through the schedule
     for g, game_num in [(games[i], i) for i in range(len(games))]:
@@ -118,27 +136,32 @@ for i in range(SIMS):
     for t in teams:
         win_dist[t][season_wins[t]] += 1
 
-print('{:16}  {:4} {:2} {:2} {:4}  {:6} {:6} {:6} {:}'.format('Team', 'Rnk', 
+print('{:16}  {:4} {:2} {:2} {:4}  {:6} {:6} {:6} {:}'.format('Team', 'Rnk',
     'W', 'L', 'Luck', 'Share', 'Outrt', '1Seed', 'EWins'))
 
-for team in sorted(teams, key= lambda x: sum([i*win_dist[x][i]/SIMS 
+for team in sorted(teams, key= lambda x: sum([i*win_dist[x][i]/SIMS
             for i in range(len(win_dist[x]))]), reverse=True):
     print('{0:16} {1:4}  {2:1}  {3:1}  {4:4.1f}  {5:0.3f}  {6:0.3f}  {7:0.3f}  '\
        '{8:.3}'.format(team, team_data[team][2], wle[team][0], wle[team][1],
-        wle[team][0]-wle[team][2], team_champs[team][0]/SIMS, 
-        team_champs[team][1]/SIMS, team_champs[team][2]/SIMS, 
-        sum([i*win_dist[team][i]/SIMS 
+        wle[team][0]-wle[team][2], team_champs[team][0]/SIMS,
+        team_champs[team][1]/SIMS, team_champs[team][2]/SIMS,
+        sum([i*win_dist[team][i]/SIMS
             for i in range(len(win_dist[team]))])))
 if args.wins:
-    if args.wins not in teams:
+    wd_teams = []
+    if args.wins == "All":
+        wd_teams = teams
+    elif args.wins not in teams:
         raise NameError('Win distribution team not in conference')
-    print('\nWin distribution for', args.wins)
-    print("Wins  Prob.   Cumulative")
-    wd = 0
-    for bb in range(games_in_season+1):
-        w = win_dist[args.wins][bb]/SIMS
-        wd += w
-        print('{:5} {:0.4f}  {:0.4f}'.format(str(bb), w, wd))
+    else:
+        wd_teams = [args.wins]
+    for t in wd_teams:
+        print('\nWin distribution for', t)
+        print("Wins  Prob.   Cumulative")
+        wd = 0
+        for bb in range(games_in_season+1):
+            w = win_dist[t][bb]/SIMS
+            wd += w
+            print('{:5} {:0.4f}  {:0.4f}'.format(str(bb), w, wd))
 
 print('\n')
-print(time() - time_count)

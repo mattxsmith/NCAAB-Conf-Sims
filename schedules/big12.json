@@ -1,556 +1,556 @@
-{
-      "teams":[
-         "Kansas",
-         "Kansas St.",
-         "Baylor",
-         "TCU",
-         "Texas",
-         "Iowa St.",
-         "Oklahoma",
-         "Oklahoma St.",
-         "West Virginia",
-         "Texas Tech"
-      ],
-      "schedule":[
-         {
-            "date":"Jan 02",
-            "home-team":"Texas Tech",
-            "away-team":"Texas",
-            "winner":"Texas Tech"
-         },
-         {
-            "date":"Jan 02",
-            "home-team":"Oklahoma St.",
-            "away-team":"TCU",
-            "winner":"Oklahoma St."
-         },
-         {
-            "date":"Jan 02",
-            "home-team":"Kansas St.",
-            "away-team":"West Virginia",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Jan 02",
-            "home-team":"Kansas",
-            "away-team":"Baylor",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Jan 02",
-            "home-team":"Oklahoma",
-            "away-team":"Iowa St.",
-            "winner":"Oklahoma"
-         },
-         {
-            "date":"Jan 04",
-            "home-team":"TCU",
-            "away-team":"West Virginia",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Jan 04",
-            "home-team":"Kansas",
-            "away-team":"Oklahoma",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Jan 05",
-            "home-team":"Texas",
-            "away-team":"Kansas St.",
-            "winner":"Texas"
-         },
-         {
-            "date":"Jan 05",
-            "home-team":"Baylor",
-            "away-team":"Oklahoma St.",
-            "winner":"Baylor"
-         },
-         {
-            "date":"Jan 06",
-            "home-team":"Iowa St.",
-            "away-team":"Texas Tech",
-            "winner":"Iowa St."
-         },
-         {
-            "date":"Jan 09",
-            "home-team":"West Virginia",
-            "away-team":"Oklahoma St.",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Jan 09",
-            "home-team":"Iowa St.",
-            "away-team":"Baylor",
-            "winner":"Baylor"
-         },
-         {
-            "date":"Jan 09",
-            "home-team":"Oklahoma",
-            "away-team":"Kansas St.",
-            "winner":"Oklahoma"
-         },
-         {
-            "date":"Jan 09",
-            "home-team":"TCU",
-            "away-team":"Texas",
-            "winner":"TCU"
-         },
-         {
-            "date":"Jan 09",
-            "home-team":"Texas Tech",
-            "away-team":"Kansas",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Jan 12",
-            "home-team":"West Virginia",
-            "away-team":"Kansas",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Jan 12",
-            "home-team":"Kansas St.",
-            "away-team":"Texas Tech",
-            "winner":"Kansas St."
-         },
-         {
-            "date":"Jan 12",
-            "home-team":"Texas",
-            "away-team":"Iowa St.",
-            "winner":"Texas"
-         },
-         {
-            "date":"Jan 13",
-            "home-team":"Baylor",
-            "away-team":"TCU",
-            "winner":"Baylor"
-         },
-         {
-            "date":"Jan 13",
-            "home-team":"Oklahoma St.",
-            "away-team":"Oklahoma",
-            "winner":"Oklahoma"
-         },
-         {
-            "date":"Jan 16",
-            "home-team":"Texas Tech",
-            "away-team":"Baylor",
-            "winner":"Baylor"
-         },
-         {
-            "date":"Jan 16",
-            "home-team":"Kansas",
-            "away-team":"TCU",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Jan 16",
-            "home-team":"Oklahoma",
-            "away-team":"West Virginia",
-            "winner":"Oklahoma"
-         },
-         {
-            "date":"Jan 16",
-            "home-team":"Kansas St.",
-            "away-team":"Iowa St.",
-            "winner":"Iowa St."
-         },
-         {
-            "date":"Jan 16",
-            "home-team":"Texas",
-            "away-team":"Oklahoma St.",
-            "winner":"Texas"
-         },
-         {
-            "date":"Jan 18",
-            "home-team":"TCU",
-            "away-team":"Texas Tech",
-            "winner":"Texas Tech"
-         },
-         {
-            "date":"Jan 18",
-            "home-team":"Iowa St.",
-            "away-team":"Oklahoma",
-            "winner":"Iowa St."
-         },
-         {
-            "date":"Jan 19",
-            "home-team":"Oklahoma St.",
-            "away-team":"Kansas",
-            "winner":"Oklahoma St."
-         },
-         {
-            "date":"Jan 20",
-            "home-team":"West Virginia",
-            "away-team":"Texas",
-            "winner":"Texas"
-         },
-         {
-            "date":"Jan 20",
-            "home-team":"Baylor",
-            "away-team":"Kansas St.",
-            "winner":"Baylor"
-         },
-         {
-            "date":"Jan 23",
-            "home-team":"Baylor",
-            "away-team":"Oklahoma",
-            "winner":"Oklahoma"
-         },
-         {
-            "date":"Jan 23",
-            "home-team":"Texas Tech",
-            "away-team":"West Virginia",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Jan 23",
-            "home-team":"Kansas",
-            "away-team":"Texas",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Jan 23",
-            "home-team":"TCU",
-            "away-team":"Iowa St.",
-            "winner":"Iowa St."
-         },
-         {
-            "date":"Jan 23",
-            "home-team":"Kansas St.",
-            "away-team":"Oklahoma St.",
-            "winner":"Kansas St."
-         },
-         {
-            "date":"Jan 25",
-            "home-team":"Iowa St.",
-            "away-team":"Kansas",
-            "winner":"Iowa St."
-         },
-         {
-            "date":"Jan 26",
-            "home-team":"West Virginia",
-            "away-team":"Kansas St.",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Jan 26",
-            "home-team":"Oklahoma",
-            "away-team":"Texas Tech",
-            "winner":"Oklahoma"
-         },
-         {
-            "date":"Jan 26",
-            "home-team":"Texas",
-            "away-team":"TCU",
-            "winner":"Texas"
-         },
-         {
-            "date":"Jan 27",
-            "home-team":"Oklahoma St.",
-            "away-team":"Baylor",
-            "winner":"Baylor"
-         },
-         {
-            "date":"Feb 01",
-            "home-team":"Baylor",
-            "away-team":"Texas",
-            "winner":"Texas"
-         },
-         {
-            "date":"Feb 02",
-            "home-team":"Oklahoma",
-            "away-team":"TCU",
-            "winner":"Oklahoma"
-         },
-         {
-            "date":"Feb 02",
-            "home-team":"Iowa St.",
-            "away-team":"West Virginia",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Feb 03",
-            "home-team":"Kansas",
-            "away-team":"Kansas St.",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Feb 03",
-            "home-team":"Texas Tech",
-            "away-team":"Oklahoma St.",
-            "winner":"Texas Tech"
-         },
-         {
-            "date":"Feb 06",
-            "home-team":"TCU",
-            "away-team":"Kansas",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Feb 06",
-            "home-team":"Texas",
-            "away-team":"Texas Tech",
-            "winner":"Texas"
-         },
-         {
-            "date":"Feb 06",
-            "home-team":"Oklahoma St.",
-            "away-team":"Iowa St.",
-            "winner":"Iowa St."
-         },
-         {
-            "date":"Feb 06",
-            "home-team":"Kansas St.",
-            "away-team":"Oklahoma",
-            "winner":"Kansas St."
-         },
-         {
-            "date":"Feb 06",
-            "home-team":"West Virginia",
-            "away-team":"Baylor",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Feb 08",
-            "home-team":"TCU",
-            "away-team":"Oklahoma St.",
-            "winner":"TCU"
-         },
-         {
-            "date":"Feb 08",
-            "home-team":"Oklahoma",
-            "away-team":"Texas",
-            "winner":"Oklahoma"
-         },
-         {
-            "date":"Feb 09",
-            "home-team":"Kansas",
-            "away-team":"West Virginia",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Feb 10",
-            "home-team":"Kansas St.",
-            "away-team":"Baylor",
-            "winner":"Baylor"
-         },
-         {
-            "date":"Feb 10",
-            "home-team":"Texas Tech",
-            "away-team":"Iowa St.",
-            "winner":"Texas Tech"
-         },
-         {
-            "date":"Feb 13",
-            "home-team":"Iowa St.",
-            "away-team":"Texas",
-            "winner":"Iowa St."
-         },
-         {
-            "date":"Feb 13",
-            "home-team":"West Virginia",
-            "away-team":"TCU",
-            "winner":"West Virginia"
-         },
-         {
-            "date":"Feb 13",
-            "home-team":"Oklahoma St.",
-            "away-team":"Kansas St.",
-            "winner":"Oklahoma St."
-         },
-         {
-            "date":"Feb 13",
-            "home-team":"Baylor",
-            "away-team":"Texas Tech",
-            "winner":"Texas Tech"
-         },
-         {
-            "date":"Feb 13",
-            "home-team":"Oklahoma",
-            "away-team":"Kansas",
-            "winner":"Kansas"
-         },
-         {
-            "date":"Feb 15",
-            "home-team":"Kansas",
-            "away-team":"Oklahoma St.",
-            "winner":null
-         },
-         {
-            "date":"Feb 16",
-            "home-team":"Texas",
-            "away-team":"West Virginia",
-            "winner":null
-         },
-         {
-            "date":"Feb 16",
-            "home-team":"TCU",
-            "away-team":"Kansas St.",
-            "winner":null
-         },
-         {
-            "date":"Feb 16",
-            "home-team":"Baylor",
-            "away-team":"Iowa St.",
-            "winner":null
-         },
-         {
-            "date":"Feb 17",
-            "home-team":"Texas Tech",
-            "away-team":"Oklahoma",
-            "winner":null
-         },
-         {
-            "date":"Feb 20",
-            "home-team":"Texas",
-            "away-team":"Baylor",
-            "winner":null
-         },
-         {
-            "date":"Feb 20",
-            "home-team":"West Virginia",
-            "away-team":"Oklahoma",
-            "winner":null
-         },
-         {
-            "date":"Feb 20",
-            "home-team":"Kansas St.",
-            "away-team":"Kansas",
-            "winner":null
-         },
-         {
-            "date":"Feb 20",
-            "home-team":"Iowa St.",
-            "away-team":"TCU",
-            "winner":null
-         },
-         {
-            "date":"Feb 20",
-            "home-team":"Oklahoma St.",
-            "away-team":"Texas Tech",
-            "winner":null
-         },
-         {
-            "date":"Feb 22",
-            "home-team":"Kansas St.",
-            "away-team":"Texas",
-            "winner":null
-         },
-         {
-            "date":"Feb 22",
-            "home-team":"West Virginia",
-            "away-team":"Iowa St.",
-            "winner":null
-         },
-         {
-            "date":"Feb 23",
-            "home-team":"Baylor",
-            "away-team":"Kansas",
-            "winner":null
-         },
-         {
-            "date":"Feb 23",
-            "home-team":"Texas Tech",
-            "away-team":"TCU",
-            "winner":null
-         },
-         {
-            "date":"Feb 24",
-            "home-team":"Oklahoma",
-            "away-team":"Oklahoma St.",
-            "winner":null
-         },
-         {
-            "date":"Feb 27",
-            "home-team":"Iowa St.",
-            "away-team":"Kansas St.",
-            "winner":null
-         },
-         {
-            "date":"Feb 27",
-            "home-team":"Kansas",
-            "away-team":"Texas Tech",
-            "winner":null
-         },
-         {
-            "date":"Feb 27",
-            "home-team":"Texas",
-            "away-team":"Oklahoma",
-            "winner":null
-         },
-         {
-            "date":"Feb 27",
-            "home-team":"Oklahoma St.",
-            "away-team":"West Virginia",
-            "winner":null
-         },
-         {
-            "date":"Feb 27",
-            "home-team":"TCU",
-            "away-team":"Baylor",
-            "winner":null
-         },
-         {
-            "date":"Feb 29",
-            "home-team":"Iowa St.",
-            "away-team":"Oklahoma St.",
-            "winner":null
-         },
-         {
-            "date":"Feb 29",
-            "home-team":"Texas",
-            "away-team":"Kansas",
-            "winner":null
-         },
-         {
-            "date":"Mar 01",
-            "home-team":"Oklahoma",
-            "away-team":"Baylor",
-            "winner":null
-         },
-         {
-            "date":"Mar 02",
-            "home-team":"West Virginia",
-            "away-team":"Texas Tech",
-            "winner":null
-         },
-         {
-            "date":"Mar 02",
-            "home-team":"Kansas St.",
-            "away-team":"TCU",
-            "winner":null
-         },
-         {
-            "date":"Mar 04",
-            "home-team":"Oklahoma St.",
-            "away-team":"Texas",
-            "winner":null
-         },
-         {
-            "date":"Mar 05",
-            "home-team":"Baylor",
-            "away-team":"West Virginia",
-            "winner":null
-         },
-         {
-            "date":"Mar 05",
-            "home-team":"Kansas",
-            "away-team":"Iowa St.",
-            "winner":null
-         },
-         {
-            "date":"Mar 05",
-            "home-team":"TCU",
-            "away-team":"Oklahoma",
-            "winner":null
-         },
-         {
-            "date":"Mar 05",
-            "home-team":"Texas Tech",
-            "away-team":"Kansas St.",
-            "winner":null
-         }
-      ]
+{  
+   "teams":[  
+      "Kansas",
+      "West Virginia",
+      "Baylor",
+      "Texas Tech",
+      "Iowa St.",
+      "Kansas St.",
+      "Oklahoma St.",
+      "TCU",
+      "Oklahoma",
+      "Texas"
+   ],
+   "schedule":[  
+      {  
+         "date":"Fri,Dec 30",
+         "home-team":"Oklahoma St.",
+         "away-team":"West Virginia",
+         "winner":"West Virginia"
+      },
+      {  
+         "date":"Fri,Dec 30",
+         "home-team":"Iowa St.",
+         "away-team":"Texas Tech",
+         "winner":"Iowa St."
+      },
+      {  
+         "date":"Fri,Dec 30",
+         "home-team":"Oklahoma",
+         "away-team":"Baylor",
+         "winner":"Baylor"
+      },
+      {  
+         "date":"Fri,Dec 30",
+         "home-team":"Kansas St.",
+         "away-team":"Texas",
+         "winner":"Kansas St."
+      },
+      {  
+         "date":"Fri,Dec 30",
+         "home-team":"TCU",
+         "away-team":"Kansas",
+         "winner":"Kansas"
+      },
+      {  
+         "date":"Tue,Jan 03",
+         "home-team":"TCU",
+         "away-team":"Oklahoma",
+         "winner":"TCU"
+      },
+      {  
+         "date":"Tue,Jan 03",
+         "home-team":"Kansas",
+         "away-team":"Kansas St.",
+         "winner":"Kansas"
+      },
+      {  
+         "date":"Tue,Jan 03",
+         "home-team":"Texas Tech",
+         "away-team":"West Virginia",
+         "winner":"Texas Tech"
+      },
+      {  
+         "date":"Wed,Jan 04",
+         "home-team":"Baylor",
+         "away-team":"Iowa St.",
+         "winner":"Baylor"
+      },
+      {  
+         "date":"Wed,Jan 04",
+         "home-team":"Texas",
+         "away-team":"Oklahoma St.",
+         "winner":"Texas"
+      },
+      {  
+         "date":"Sat,Jan 07",
+         "home-team":"West Virginia",
+         "away-team":"TCU",
+         "winner":"West Virginia"
+      },
+      {  
+         "date":"Sat,Jan 07",
+         "home-team":"Kansas St.",
+         "away-team":"Oklahoma",
+         "winner":"Kansas St."
+      },
+      {  
+         "date":"Sat,Jan 07",
+         "home-team":"Baylor",
+         "away-team":"Oklahoma St.",
+         "winner": "Baylor"
+      },
+      {  
+         "date":"Sat,Jan 07",
+         "home-team":"Kansas",
+         "away-team":"Texas Tech",
+         "winner": "Kansas"
+      },
+      {  
+         "date":"Sat,Jan 07",
+         "home-team":"Iowa St.",
+         "away-team":"Texas",
+         "winner": "Iowa St."
+      },
+      {  
+         "date":"Tue,Jan 10",
+         "home-team":"West Virginia",
+         "away-team":"Baylor",
+         "winner":"West Virginia"
+      },
+      {  
+         "date":"Tue,Jan 10",
+         "home-team":"Oklahoma",
+         "away-team":"Kansas",
+         "winner":"Kansas"
+      },
+      {  
+         "date":"Tue,Jan 10",
+         "home-team":"Texas Tech",
+         "away-team":"Kansas St.",
+         "winner":"Texas Tech"
+      },
+      {  
+         "date":"Wed,Jan 11",
+         "home-team":"Texas",
+         "away-team":"TCU",
+         "winner":"TCU"
+      },
+      {  
+         "date":"Wed,Jan 11",
+         "home-team":"Oklahoma St.",
+         "away-team":"Iowa St.",
+         "winner":"Iowa St."
+      },
+      {  
+         "date":"Sat,Jan 14",
+         "home-team":"Kansas",
+         "away-team":"Oklahoma St.",
+         "winner":"Kansas"
+      },
+      {  
+         "date":"Sat,Jan 14",
+         "home-team":"Texas",
+         "away-team":"West Virginia",
+         "winner":"West Virginia"
+      },
+      {  
+         "date":"Sat,Jan 14",
+         "home-team":"Kansas St.",
+         "away-team":"Baylor",
+         "winner":"Baylor"
+      },
+      {  
+         "date":"Sat,Jan 14",
+         "home-team":"TCU",
+         "away-team":"Iowa St.",
+         "winner":"TCU"
+      },
+      {  
+         "date":"Sat,Jan 14",
+         "home-team":"Oklahoma",
+         "away-team":"Texas Tech",
+         "winner":"Oklahoma"
+      },
+      {  
+         "date":"Mon,Jan 16",
+         "home-team":"Iowa St.",
+         "away-team":"Kansas",
+         "winner": "Kansas"
+      },
+      {  
+         "date":"Tue,Jan 17",
+         "home-team":"Baylor",
+         "away-team":"Texas",
+         "winner":"Baylor"
+      },
+      {  
+         "date":"Wed,Jan 18",
+         "home-team":"West Virginia",
+         "away-team":"Oklahoma",
+         "winner":"Oklahoma"
+      },
+      {  
+         "date":"Wed,Jan 18",
+         "home-team":"Texas Tech",
+         "away-team":"TCU",
+         "winner":"Texas Tech"
+      },
+      {  
+         "date":"Wed,Jan 18",
+         "home-team":"Oklahoma St.",
+         "away-team":"Kansas St.",
+         "winner":"Kansas St."
+      },
+      {  
+         "date":"Sat,Jan 21",
+         "home-team":"Oklahoma",
+         "away-team":"Iowa St.",
+         "winner":"Iowa St."
+      },
+      {  
+         "date":"Sat,Jan 21",
+         "home-team":"Texas Tech",
+         "away-team":"Oklahoma St.",
+         "winner":"Oklahoma St."
+      },
+      {  
+         "date":"Sat,Jan 21",
+         "home-team":"Kansas",
+         "away-team":"Texas",
+         "winner":"Kansas"
+      },
+      {  
+         "date":"Sat,Jan 21",
+         "home-team":"Kansas St.",
+         "away-team":"West Virginia",
+         "winner":"Kansas St."
+      },
+      {  
+         "date":"Sat,Jan 21",
+         "home-team":"TCU",
+         "away-team":"Baylor",
+         "winner":"Baylor"
+      },
+      {  
+         "date":"Mon,Jan 23",
+         "home-team":"Oklahoma St.",
+         "away-team":"TCU",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Jan 23",
+         "home-team":"Texas",
+         "away-team":"Oklahoma",
+         "winner":null
+      },
+      {  
+         "date":"Tue,Jan 24",
+         "home-team":"West Virginia",
+         "away-team":"Kansas",
+         "winner":null
+      },
+      {  
+         "date":"Tue,Jan 24",
+         "home-team":"Iowa St.",
+         "away-team":"Kansas St.",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Jan 25",
+         "home-team":"Baylor",
+         "away-team":"Texas Tech",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Jan 30",
+         "home-team":"Oklahoma",
+         "away-team":"Oklahoma St.",
+         "winner":null
+      },
+      {  
+         "date":"Tue,Jan 31",
+         "home-team":"Iowa St.",
+         "away-team":"West Virginia",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 01",
+         "home-team":"Kansas St.",
+         "away-team":"TCU",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 01",
+         "home-team":"Texas",
+         "away-team":"Texas Tech",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 01",
+         "home-team":"Kansas",
+         "away-team":"Baylor",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 04",
+         "home-team":"Kansas",
+         "away-team":"Iowa St.",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 04",
+         "home-team":"TCU",
+         "away-team":"Texas",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 04",
+         "home-team":"Baylor",
+         "away-team":"Kansas St.",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 04",
+         "home-team":"West Virginia",
+         "away-team":"Oklahoma St.",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 04",
+         "home-team":"Texas Tech",
+         "away-team":"Oklahoma",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Feb 06",
+         "home-team":"Kansas St.",
+         "away-team":"Kansas",
+         "winner":null
+      },
+      {  
+         "date":"Tue,Feb 07",
+         "home-team":"TCU",
+         "away-team":"Texas Tech",
+         "winner":null
+      },
+      {  
+         "date":"Tue,Feb 07",
+         "home-team":"Texas",
+         "away-team":"Iowa St.",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 08",
+         "home-team":"Oklahoma St.",
+         "away-team":"Baylor",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 08",
+         "home-team":"Oklahoma",
+         "away-team":"West Virginia",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 11",
+         "home-team":"West Virginia",
+         "away-team":"Kansas St.",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 11",
+         "home-team":"Baylor",
+         "away-team":"TCU",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 11",
+         "home-team":"Texas Tech",
+         "away-team":"Kansas",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 11",
+         "home-team":"Oklahoma St.",
+         "away-team":"Texas",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 11",
+         "home-team":"Iowa St.",
+         "away-team":"Oklahoma",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Feb 13",
+         "home-team":"Texas Tech",
+         "away-team":"Baylor",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Feb 13",
+         "home-team":"Kansas",
+         "away-team":"West Virginia",
+         "winner":null
+      },
+      {  
+         "date":"Tue,Feb 14",
+         "home-team":"Oklahoma",
+         "away-team":"Texas",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 15",
+         "home-team":"Kansas St.",
+         "away-team":"Iowa St.",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 15",
+         "home-team":"TCU",
+         "away-team":"Oklahoma St.",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 18",
+         "home-team":"Baylor",
+         "away-team":"Kansas",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 18",
+         "home-team":"West Virginia",
+         "away-team":"Texas Tech",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 18",
+         "home-team":"Texas",
+         "away-team":"Kansas St.",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 18",
+         "home-team":"Iowa St.",
+         "away-team":"TCU",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 18",
+         "home-team":"Oklahoma St.",
+         "away-team":"Oklahoma",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Feb 20",
+         "home-team":"Texas Tech",
+         "away-team":"Iowa St.",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Feb 20",
+         "home-team":"West Virginia",
+         "away-team":"Texas",
+         "winner":null
+      },
+      {  
+         "date":"Tue,Feb 21",
+         "home-team":"Baylor",
+         "away-team":"Oklahoma",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 22",
+         "home-team":"Kansas",
+         "away-team":"TCU",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Feb 22",
+         "home-team":"Kansas St.",
+         "away-team":"Oklahoma St.",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 25",
+         "home-team":"TCU",
+         "away-team":"West Virginia",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 25",
+         "home-team":"Iowa St.",
+         "away-team":"Baylor",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 25",
+         "home-team":"Texas",
+         "away-team":"Kansas",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 25",
+         "home-team":"Oklahoma St.",
+         "away-team":"Texas Tech",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Feb 25",
+         "home-team":"Oklahoma",
+         "away-team":"Kansas St.",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Feb 27",
+         "home-team":"Baylor",
+         "away-team":"West Virginia",
+         "winner":null
+      },
+      {  
+         "date":"Mon,Feb 27",
+         "home-team":"Kansas",
+         "away-team":"Oklahoma",
+         "winner":null
+      },
+      {  
+         "date":"Tue,Feb 28",
+         "home-team":"Iowa St.",
+         "away-team":"Oklahoma St.",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Mar 01",
+         "home-team":"Texas Tech",
+         "away-team":"Texas",
+         "winner":null
+      },
+      {  
+         "date":"Wed,Mar 01",
+         "home-team":"TCU",
+         "away-team":"Kansas St.",
+         "winner":null
+      },
+      {  
+         "date":"Fri,Mar 03",
+         "home-team":"West Virginia",
+         "away-team":"Iowa St.",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Mar 04",
+         "home-team":"Kansas St.",
+         "away-team":"Texas Tech",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Mar 04",
+         "home-team":"Oklahoma",
+         "away-team":"TCU",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Mar 04",
+         "home-team":"Texas",
+         "away-team":"Baylor",
+         "winner":null
+      },
+      {  
+         "date":"Sat,Mar 04",
+         "home-team":"Oklahoma St.",
+         "away-team":"Kansas",
+         "winner":null
+      }
+   ]
 }
