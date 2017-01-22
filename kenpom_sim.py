@@ -10,18 +10,9 @@ import argparse
 
 time_count = time()
 
-def log5(a,b):
-  return (a-a*b)/(a+b-2*a*b)
-
-def pythag(c,d,e):
-  return (c**e)/(c**e+d**e)
-
 # default constants
 SUMMARY_FILE = 'summary17 (13).csv'
-EXP = 11.5 # pythag exponent
-HCA = .014 # home court advantage
 AVG_TEMPO = 69.7 # used to calculate tempo of each game
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument("conference", help="This argument is the name of the"
@@ -68,15 +59,6 @@ wle = dict(zip(teams, [[0,0,0] for i in teams]))
 for g in games:
     tempo = team_data[g['home-team']][3]*team_data[g['away-team']][3]/AVG_TEMPO
     home_margin = (team_data[g['home-team']][4] - team_data[g['away-team']][4])*(tempo/100) + 3.75
-    #if g['home-team'] == "Kansas":
-    #    home_margin += 100
-    #home_oe = team_data[g['home-team']][0]
-    #home_de = team_data[g['home-team']][1]
-    #away_oe = team_data[g['away-team']][0]
-    #away_de = team_data[g['away-team']][1]
-    #home_pyth = pythag(home_oe*(1+HCA), home_de*(1-HCA), EXP)
-    #away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
-    #home_win_prob = log5(home_pyth, away_pyth)
     home_win_prob = .5*(1+erf((home_margin)/(11*(2)**.5)))
     g_p.append(home_win_prob)
     #g['winner'] = None
@@ -93,7 +75,6 @@ for g in games:
         wle[g['away-team']][2] += (1-home_win_prob)
 
 
-#print(g_p)
 # calculate games in season by finding the most games a team is scheduled to play
 games_per_team = [len([g for g in games if g['home-team'] == t
     or g['away-team'] == t]) for t in teams]
