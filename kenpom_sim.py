@@ -8,11 +8,20 @@ from os.path import isfile
 from math import erf
 import argparse
 
+def log5(a,b):
+  return (a-a*b)/(a+b-2*a*b)
+
+def pythag(c,d,e):
+  return (c**e)/(c**e+d**e)
+
+EXP = 11.5 # pythag exponent
+HCA = .014 # home court advantage
+
 time_count = time()
 
 # default constants
-SUMMARY_FILE = 'summary17 (13).csv'
-AVG_TEMPO = 69.7 # used to calculate tempo of each game
+SUMMARY_FILE = 'summary17 (21).csv'
+AVG_TEMPO = 68.6 # used to calculate tempo of each game
 
 parser = argparse.ArgumentParser()
 parser.add_argument("conference", help="This argument is the name of the"
@@ -60,6 +69,15 @@ for g in games:
     tempo = team_data[g['home-team']][3]*team_data[g['away-team']][3]/AVG_TEMPO
     home_margin = (team_data[g['home-team']][4] - team_data[g['away-team']][4])*(tempo/100) + 3.75
     home_win_prob = .5*(1+erf((home_margin)/(11*(2)**.5)))
+    ## for legacy KP method
+    # home_oe = team_data[g['home-team']][0]
+    # home_de = team_data[g['home-team']][1]
+    # away_oe = team_data[g['away-team']][0]
+    # away_de = team_data[g['away-team']][1]
+    # home_pyth = pythag(home_oe*(1+HCA), home_de*(1-HCA), EXP)
+    # away_pyth = pythag(away_oe*(1-HCA), away_de*(1+HCA), EXP)
+    # home_win_prob = log5(home_pyth, away_pyth)
+
     g_p.append(home_win_prob)
     #g['winner'] = None
     if g['winner']:
