@@ -20,7 +20,7 @@ HCA = .014 # home court advantage
 time_count = time()
 
 # default constants
-SUMMARY_FILE = 'summary17 (21).csv'
+SUMMARY_FILE = 'summary17.csv'
 AVG_TEMPO = 68.6 # used to calculate tempo of each game
 
 parser = argparse.ArgumentParser()
